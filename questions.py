@@ -3,6 +3,7 @@
 
 # adds 2 numbers
 def add_numbers(n1, n2):
+    print('the result is: ')
     return n1 + n2
 
 
