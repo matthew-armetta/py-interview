@@ -1,7 +1,7 @@
 # Python interview questions
 
 
-# adds 2 numbers
+# add 2 numbers
 def add_numbers(n1, n2):
     return n1 + n2
 
@@ -9,7 +9,7 @@ def add_numbers(n1, n2):
 print(add_numbers(18, 20))
 
 
-# reverses a String (don't use reverse())
+# reverse a String (don't use reverse())
 def reverse_string(s):
     r_string = ''
     for c in s:
