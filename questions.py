@@ -40,3 +40,15 @@ def get_average(numbers):
 
 
 get_average([1, 4, 8, 2, 34, 34, 34, 7, 8, 9])
+
+
+# print the numbers in a list line-by-line in reverse order
+def reverse_print(alist):
+    pass
+
+
+# print the 4th element of a list of an error msg if does not exist
+def print_4th(alist):
+    pass
+
+
