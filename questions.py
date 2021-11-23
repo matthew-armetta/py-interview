@@ -1,6 +1,9 @@
 # Python interview questions
 
-# add 2 numbers
+
+import math
+
+
 def add_numbers(n1, n2):
     print(n1 + n2)
 
@@ -52,3 +55,9 @@ def print_4th(alist):
     pass
 
 
+# get sq rt of number using math module
+def sq_rt_of(n1):
+    print(math.sqrt(n1))
+
+
+sq_rt_of(16)
