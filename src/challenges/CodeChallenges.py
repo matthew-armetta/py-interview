@@ -5,8 +5,12 @@ import math
 
 
 def add_numbers(n1, n2):
+    """adds 2 numbers and returns the result. validates that only int parameters are passed"""
+    if not isinstance(n1, int) or not isinstance(n2, int):
+        print(f"must be two ints ({n1}, {n2})")
+        return None
+
     return n1 + n2
-    print(n1 + n2)
 
 
 add_numbers(18, 20)

@@ -8,6 +8,8 @@ class QuestionsTestCases(TestCase):
     def test_add_numbers(self):
         result = CodeChallenges.add_numbers(44, 99)
         self.assertEqual(result, 143)
+        result = CodeChallenges.add_numbers("astring", 99)
+        self.assertEqual(result, None)
 
     # tests the reversal of a given string
     def test_reverse_string(self):
