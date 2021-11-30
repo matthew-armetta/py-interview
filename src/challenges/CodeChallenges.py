@@ -67,3 +67,19 @@ def sq_rt_of(n1):
 
 
 sq_rt_of(25)
+
+print(type("tty"))
+print(type(5))
+print(type(5.55))
+my_list = ["matt", "manos", "manos", "jordan"]
+print(type(["matt", "manos"]))
+print(type({"master": "matt", "slave": "jordan"}))
+my_set = {"one thing", "another thing", "one thing"}
+print(my_set)
+print(len(my_set))
+print(type({"one thing", "another thing", "one thing"}))
+print(my_list)
+print(set(my_list))
+my_dict = {"room": 123, "name": "jordan", "class": "advanced algebra", "grade": "A+"}
+print(my_dict["room"])
+print(type(my_dict["room"]))
