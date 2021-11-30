@@ -1,5 +1,5 @@
 from unittest import TestCase
-import CodeChallenges
+from src.challenges import CodeChallenges
 
 
 class QuestionsTestCases(TestCase):
