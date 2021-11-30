@@ -35,6 +35,7 @@ list3 = [2, 3, 4, 5, 6, 7, 8]
 print(find_missing(list1, list2))
 print(find_missing(list1, list3))
 
+
 # find the average of a list of numbers
 def get_average(numbers):
     total = 0
