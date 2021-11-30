@@ -1,7 +1,8 @@
-import unittest
+from unittest import TestCase
 import questions
 
-class QuestionsTestCases(unittest.TestCase):
+
+class QuestionsTestCases(TestCase):
 
     # tests the sum of two numbers
     def test_add_numbers(self):
