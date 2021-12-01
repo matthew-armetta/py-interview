@@ -38,6 +38,20 @@ def get_names():
     print(f"Here are the participants: {participant_list}.\n")
     main()
 
+def matching(givers, receivers):
+    results = []
+    for name in givers:
+        giver = name
+        receiver = receivers[0]
+        if giver == receiver:
+            receiver = receivers[1]
+            results.append(giver + ' --> ' + receiver)
+            receivers.pop(1)
+        else:
+            receiver = receivers[0]
+            results.append(giver + ' --> ' + receiver)
+            receivers.pop(0)
+    return results
 
 
 
