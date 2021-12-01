@@ -11,7 +11,8 @@ def main():
         if more_names.upper() == 'Y':
             get_names()
         elif more_names.upper() == 'N':
-            pass  # todo: figure out where to go from here...
+            receivers_list = random.sample(participant_list, len(participant_list))
+            return matching(participant_list, receivers_list)
         else:
             print("Invalid input...let's try again...")
             main()
@@ -20,9 +21,10 @@ def main():
 # empty participant list
 participant_list = []
 
-
 ###  start defining the functions ###
-# get the list of people participating in the exchange.
+''' get the list of people participating in the exchange.'''
+
+
 def get_names():
     getting_names = True
     while getting_names == True:
@@ -38,6 +40,10 @@ def get_names():
     print(f"Here are the participants: {participant_list}.\n")
     main()
 
+
+''' Assign the members of the particpant list. '''
+
+
 def matching(givers, receivers):
     results = []
     for name in givers:
@@ -51,9 +57,8 @@ def matching(givers, receivers):
             receiver = receivers[0]
             results.append(giver + ' --> ' + receiver)
             receivers.pop(0)
+    print(results)
     return results
-
-
 
 
 # Press the green button in the gutter to run the script.
