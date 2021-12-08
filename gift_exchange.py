@@ -1,6 +1,7 @@
 # This is a sample Python script.
 import random
 
+
 # feedback: PEP8 convention is to use capital camel case for classnames, so can rename to GiftExchance.py
 # locks keyboard and crosses arms.
 
@@ -11,7 +12,8 @@ def main():
     elif len(participant_list) == 1:
         print("Buying a present for yourself isn't fun. Enter at least another name.")
         get_names()
-    elif len(participant_list) > 1:  # feedback: we are allowing only 1 entry but the code breaks if only 1 name is added...
+    elif len(
+            participant_list) > 1:
         more_names = input(f"There are {len(participant_list)} participants. Add more? 'Y' or 'N': ")
         if more_names.upper() == 'Y':
             get_names()
@@ -33,25 +35,30 @@ def get_names():
     while getting_names == True:  # feedback: this variable may not be necessary, just use while True and when "F" in inputted just break
         if len(participant_list) == 0:
             name = input(
-                "Type the name of the first participant: ")  # feedback: maybe use a regex to validate input?  i can put blank spaces in now, maybe check all chars are alphas and trim any white space
+                "Type the name of the first participant: ").strip()  # strip takes care of the whitespaces...
             # feedback: maybe allow the user to enter a comma separated list of names as well? can use "split" on input received
-            participant_list.append(name)
+            if not name.isalpha():
+                print(f"'{name}' doesn't look right, try again.")
+                get_names()
+            else:
+                participant_list.append(name.capitalize())
         else:
             name = input(
-                "Type another name, or -- if you're done -- type 'F': ")  # feedback: same regex comment here, how to apply to both?
+                "Type another name, or -- if you're done -- type 'F': ").strip()  # feedback: same regex comment here, how to apply to both?
             if name.upper() == "F":
                 getting_names = False
             else:
-                participant_list.append(name)
+                if not name.isalpha():
+                    print(f"'{name}' doesn't look right, try again.")
+                    get_names()
+                else:
+                    participant_list.append(name.capitalize())
     print(f"Here are the participants: {participant_list}.\n")
     main()
 
 
-
-
-
 def assign_givers(givers, receivers):
-    """  Given a list of  givers, assigns each item to an item on the list of receivers, and removes that receiver from the receiver list """
+    """  Given a list of givers, assigns each item to an item on the list of receivers, and removes that receiver from the receiver list """
     results = []
     for name in givers:
         giver = name
