@@ -46,7 +46,7 @@ def get_names():
     main()
 
 
-''' Assign the members of the particpant list. '''  # feedback: this docstring should be double not single quotes and be the
+''' Assign the members of the participant list. '''  # feedback: this docstring should be double not single quotes and be the
 
 
 # first line of the function, also no space between quotes and words, do u even PEP8 bro, also u do even spell participant
