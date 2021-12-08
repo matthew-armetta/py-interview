@@ -2,19 +2,22 @@
 import random
 
 # feedback: PEP8 convention is to use capital camel case for classnames, so can rename to GiftExchance.py
+# locks keyboard and crosses arms.
 
 def main():
     if len(participant_list) == 0:
         print("Let's put together a gift exchange! Add a name to get started.")
         get_names()
-    elif len(
-            participant_list) > 0:  # feedback: we are allowing only 1 entry but the code breaks if only 1 name is added...
+    elif len(participant_list) == 1:
+        print("Buying a present for yourself isn't fun. Enter at least another name.")
+        get_names()
+    elif len(participant_list) > 1:  # feedback: we are allowing only 1 entry but the code breaks if only 1 name is added...
         more_names = input(f"There are {len(participant_list)} participants. Add more? 'Y' or 'N': ")
         if more_names.upper() == 'Y':
             get_names()
         elif more_names.upper() == 'N':
             receivers_list = random.sample(participant_list, len(participant_list))
-            return matching(participant_list, receivers_list)
+            return assign_givers(participant_list, receivers_list)
         else:
             print("Invalid input...let's try again...")
             main()
@@ -23,11 +26,9 @@ def main():
 # empty participant list
 participant_list = []
 
-###  start defining the functions ###
-''' get the list of people participating in the exchange.'''  # feedback: same as below, put as first line of function
-
 
 def get_names():
+    """ Get the list of people participating in the exchange. """
     getting_names = True
     while getting_names == True:  # feedback: this variable may not be necessary, just use while True and when "F" in inputted just break
         if len(participant_list) == 0:
@@ -46,14 +47,11 @@ def get_names():
     main()
 
 
-''' Assign the members of the participant list. '''  # feedback: this docstring should be double not single quotes and be the
 
 
-# first line of the function, also no space between quotes and words, do u even PEP8 bro, also u do even spell participant
-# correctly bro
 
-
-def matching(givers, receivers):  # feedback: more descriptive function name, matching what?
+def assign_givers(givers, receivers):
+    """  Given a list of  givers, assigns each item to an item on the list of receivers, and removes that receiver from the receiver list """
     results = []
     for name in givers:
         giver = name
