@@ -51,12 +51,15 @@ def get_names_for_games():
 def validate_input(entered_name):
     """ Checks the entered name to make sure it contains only alpha characters and is not a duplicate name. """
     if entered_name.isalpha() == True and entered_name.capitalize() not in participant_list:
+        return True
         participant_list.append(entered_name.capitalize())
     elif entered_name.isalpha() == False:
         print(f"'{entered_name}' doesn't look right, try again.")
+        return False
         get_names_for_games()
     elif entered_name.capitalize() in participant_list:
         print(f"{entered_name} is already on the list!")
+        return False
         get_names_for_games()
 
 
