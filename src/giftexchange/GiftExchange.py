@@ -1,4 +1,4 @@
-# This is a sample Python script.
+import sys
 import random
 
 # feedback: PEP8 convention is to use capital camel case for classnames, so can rename to GiftExchance.py
@@ -36,28 +36,28 @@ def get_names_for_games():
             name = input(
                 "Type the name of the first participant: ").strip()  # strip takes care of the whitespaces...
             # feedback: maybe allow the user to enter a comma separated list of names as well? can use "split" on input received
-            if not name.isalpha():
-                # feedback: move alpha check and dupe check into its own function, call that here, and in next condition
-                print(f"'{name}' doesn't look right, try again.")
-                get_names_for_games()
-            elif name.capitalize() in participant_list:
-                print(f"{name} is already on the list!")
-                get_names_for_games()
-            else:
-                participant_list.append(name.capitalize())
+            validate_input(name)
         else:
             name = input(
-                "Type another name, or -- if you're done -- type 'F': ").strip()  # feedback: same regex comment here, how to apply to both?
+                "Type another name, or -- if you're done -- type 'F': ").strip()
             if name.upper() == "F":
                 getting_names = False
             else:
-                if not name.isalpha():
-                    print(f"'{name}' doesn't look right, try again.")
-                    get_names_for_games()
-                else:
-                    participant_list.append(name.capitalize())
+                validate_input(name)
     print(f"Here are the participants: {participant_list}.\n")
     main()
+
+
+def validate_input(entered_name):
+    """ Checks the entered name to make sure it contains only alpha characters and is not a duplicate name. """
+    if entered_name.isalpha() == True and entered_name.capitalize() not in participant_list:
+        participant_list.append(entered_name.capitalize())
+    elif entered_name.isalpha() == False:
+        print(f"'{entered_name}' doesn't look right, try again.")
+        get_names_for_games()
+    elif entered_name.capitalize() in participant_list:
+        print(f"{entered_name} is already on the list!")
+        get_names_for_games()
 
 
 def assign_givers(names_for_game):
@@ -79,6 +79,19 @@ def assign_givers(names_for_game):
 
     with open("gift_exchange.txt", 'w') as out_file:
         out_file.write("The game will be played as follows: " + str(results))
+        print('Gift exchange results written to file.')
+    end_game()
+
+
+def end_game():
+    print("Thanks for setting up your gift exchange!\n")
+    next_step = input("If you want to try again, type 'Y'. Otherwise, press Enter.")
+    if next_step.capitalize() == 'Y':
+        participant_list.clear()
+        print('....\n' * 10)
+        main()
+    else:
+        sys.exit("Bye!")
 
 
 # Press the green button in the gutter to run the script.
