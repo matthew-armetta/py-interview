@@ -9,6 +9,7 @@ import timeit
 # empty participant list
 participant_list = []
 start = timeit.timeit()
+logging.basicConfig(level=logging.DEBUG)
 
 
 def main():
